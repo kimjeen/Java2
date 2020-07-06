@@ -7,7 +7,7 @@ public class GenericPrinterTest {
         //가능하여 자동으로 클래스로 형변환이 가능함
 		
 		GenericPrinter<Powder> powderPrint= new GenericPrinter<Powder>();
-		powderPrint.setMaterial(new Powder());
+		powderPrint.setMaterial(new Powder());//이름없는객체
 		Powder powder=powderPrint.getMaterial(); //형변환 하지 않음.
 		System.out.println(powder);
 		System.out.println(powderPrint);
