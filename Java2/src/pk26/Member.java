@@ -2,11 +2,11 @@ package pk26;
 
 import java.util.Comparator;
 
-public class Member implements Comparator<Member>{
+public class Member implements Comparable<Member>{
 
 	private int memberId;       //회원 아이디
 	private String memberName;  //회원 이름
-	private Member() {} //디폴트 생성자 Comparable<Member>
+	private Member() {} //디폴트 생성자 Comparator<Member>
 	
 	public Member(int memberId,String memberName ) {//생성자
 		this.memberId=memberId;
@@ -62,16 +62,20 @@ public class Member implements Comparator<Member>{
 		return memberName + "님의 아이디는 " + memberId+ "입니다.";
 	}
 
-	
-	public int compareTo(Member member,Member member2) {
+	//Comparable
+	@Override
+	public int compareTo(Member member) {
 		// TODO Auto-generated method stub
-		return (this.memberId - member.memberId); //오름차순
+//		return (this.memberId - member.memberId); //오름차순
+//		return (this.memberId - member.memberId)*(-1); //내림차순
+		return(this.memberName.compareTo(member.memberName)); //이름기준 오름차순
+//		return(this.memberName.compareTo(member.memberName))*(-1); //이름기준 내림차순
 	}
 
-	@Override
-	public int compare(Member member1, Member member2) { //comparator <E>
-		return (member1.memberId - member2.memberId);
-	}
+//	@Override
+//	public int compare(Member member1, Member member2) { //comparator <E>
+//		return (member1.memberId - member2.memberId);
+//	}
 
 	
 
